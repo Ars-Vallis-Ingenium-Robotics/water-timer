@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time in Water</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../Logos/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Logos/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Logos/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../Logos/favicon/site.webmanifest">
+
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="stylesheet" href="./rov-water.css?v=11" />
+</head>
+
+<body>
+  <main class="wrap" role="main" aria-label="Time in water timer page">
+    <section class="card">
+      <header class="hero">
+        <div class="logoWrap" aria-label="Sequoia Marine Solutions logo">
+          <img
+            id="heroLogo"
+            class="logo"
+            src="../Logos/smsLogo.png"
+            alt="Sequoia Marine Solutions logo"
+            decoding="async"
+            loading="eager"
+          />
+        </div>
+
+        <div class="heroText">
+          <p class="eyebrow">Sequoia Marine Solutions</p>
+          <h1 class="title">Time in Water</h1>
+          <p class="subtitle">
+            Track deployment time for ROSIE and ADAM separately. ROSIE is the vehicle, and ADAM is the vertical profiling float.
+            Shared state lives on the server so everyone sees the same timers.
+          </p>
+        </div>
+      </header>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <section class="timerGrid" id="timerGrid" aria-label="Timers"></section>
+
+      <div class="divider" role="separator" aria-hidden="true"></div>
+
+      <footer class="footer">
+        <span class="pill" data-sync-pill>Shared server state</span>
+        <span class="dot" aria-hidden="true">•</span>
+        <span class="fineprint" data-sync-text>Everyone sees the same timer data.</span>
+        <span class="dot" aria-hidden="true">•</span>
+        <span class="fineprint">Saved on the server for shared access across everyone.</span>
+      </footer>
+    </section>
+
+    <div class="bg" aria-hidden="true">
+      <div class="blob blobA"></div>
+      <div class="blob blobB"></div>
+      <div class="grid"></div>
+    </div>
+  </main>
+
+  <div class="modalBackdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <p class="modalKicker">Password required</p>
+      <h2 class="modalTitle" id="modalTitle">Reset timer</h2>
+      <p class="modalBody" id="modalBody">Enter the password and a justification to reset this timer.</p>
+
+      <label class="field">
+        <span class="fieldLabel">Password</span>
+        <input id="passwordInput" class="fieldInput" type="password" autocomplete="current-password" />
+      </label>
+
+      <label class="field">
+        <span class="fieldLabel">Justification</span>
+        <textarea id="justificationInput" class="fieldInput fieldTextarea" rows="3" placeholder="Why is this reset needed?"></textarea>
+      </label>
+
+      <p class="errorText" id="errorText" role="alert" aria-live="polite"></p>
+
+      <div class="modalActions">
+        <button class="btn btnGhost" id="cancelPasswordBtn" type="button">Cancel</button>
+        <button class="btn" id="confirmPasswordBtn" type="button">Reset timer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./rov-water.js?v=13" defer></script>
+</body>
+</html>

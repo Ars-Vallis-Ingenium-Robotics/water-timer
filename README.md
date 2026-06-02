@@ -7,13 +7,19 @@ A shared server-side timer app for **ROSIE** and **ADAM**.
 - resets require a password *and* a justification
 - state is shared on the server so everyone sees the same timer data
 
-## Live deployment
+## Deployment
 
 The app is deployed on this server behind **nginx** at:
 
-- https://server.voss.industries/rov-water/
+- https://server.voss.industries/water-timer/
 
 nginx proxies requests to the local Python backend, which serves both the UI and the `/api` endpoints.
+
+Deployment details:
+- `rov-water.service` runs the shared Python backend under systemd
+- nginx proxies `/water-timer/` to the backend
+- the backend persists shared timer state on disk
+- the repo includes a symlink so the same app tree can be served at both the old and new paths during the transition
 
 ## Local development
 
